@@ -1,0 +1,359 @@
+$main_color: #000000;
+$sub_color: #ffffff;
+$font_color: #000000;
+$sub_font_color: #ffffff;
+$font_size: 16px;
+$font_family: "Times New Roman", Georgia, Serif;
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+*, *:before, *:after {
+  	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: $font_color;
+}
+.wrapper {
+	width: 100%;
+	height: 100%;
+	font-size: $font-size;
+	font-family: $font_family;
+	letter-spacing: 1.2px;
+}
+.section {
+	width: 100%;
+	min-height: 400px;
+	padding: 20px 10px;
+	border-bottom: 1px solid lightgray;
+
+	&.hero {
+		position:relative;
+		background: url(../images/bg3.jpg) no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-image: linear-gradient(to bottom right, #3e3e3e, rgba(103, 103, 103, 0.44));
+			opacity: .8; 
+		}
+
+		.headliner {
+			position: absolute;
+			text-align: center;
+			width: 50%;
+			left:50%;
+			top: 50%;
+    		transform: translateY(-50%);
+			margin-left:-25%;
+			color: $sub_font_color;
+			font-size: $font-size + 2;
+			z-index: 99;
+			opacity: 1;
+			h1 {
+				font-size: $font-size * 4;
+				position: relative;
+				padding-bottom:10px;
+				margin-bottom: 10px;
+				&:after {
+					content: ' ';
+					position: absolute;
+					bottom:0;
+					height: 3px;
+					width: 100px;
+					left: 50%;
+					margin-left: -50px;
+					background: $sub_font_color;
+				}
+			}
+
+			&.post {
+				text-align: left;
+
+				h1:after {
+					content: none;
+				}
+			}
+		}
+	}
+	.post_body, .post_item {
+		width: 50%;
+		margin:0 auto;
+		padding: 30px 0px;
+	}
+	.post_item {
+		border-bottom:1px solid lightgray;
+		a:hover {
+			color: #5182c6;
+		}
+
+		h2,h3 {
+			margin-bottom: 5px;
+		}
+	}
+
+	.post_body {
+		p {
+			margin-bottom: 20px;
+
+			&.quote {
+				font-size: $font_size -2;
+				font-style: italic;
+				opacity: 0.5;
+				padding-left: 20px;
+				position: relative;
+				&:after {
+					content: ' ';
+					position: absolute;
+					width: 2px;
+					height: 100%;
+					left:0;
+					top:0;
+					background: #000000;
+				}
+			}
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+		.img_caption {
+			width: 100%;
+			text-align: center;
+			opacity: 0.5;
+			font-size: $font_size - 2;
+			font-style: italic;
+		}
+
+		.skill_widget {
+			width: 100%;
+			padding: 20px 0px;
+
+			.title {
+				font-family: Verdana, Georgia, Serif;
+				font-size: $font_size -2;
+			}
+			.indicator {
+				padding-left:100%;
+				position: relative;
+				font-family: Verdana, Georgia, Serif;
+				font-size: $font_size + 4;
+				span {
+					height: 4px;
+					width: 100%;
+    				max-width: 99%;
+					position: absolute;
+					display: block;
+					top:50%;
+					left: 0;
+					background: $main_color;
+					}
+				}
+			}
+		.service_widget {
+			text-align: center;
+			.service_box {
+				width: 30%;
+				height: 300px;
+				display: inline-block;
+				margin: 20px;
+				img {
+					display: block;
+					margin:15px auto;
+					width: 50px;
+					height: auto;
+				}
+				.title {
+					padding: 35px 0px;
+				}
+			}
+		}
+
+		.contact_form {
+			padding: 20px 0px;
+
+			input, textarea, textarea::-webkit-input-placeholder,input::-webkit-input-placeholder {
+				font-family: $font_family;
+				font-size: $font_size + 2;
+			}
+
+			input, textarea {
+				width: 100%;
+				max-width: 100%;
+				padding:20px 0px;
+				border:none;
+				border-top:1px solid lightgray;
+				outline: none;
+			}
+		
+			textarea {
+				border-bottom:1px solid lightgray;
+			}
+
+			button {
+				margin:20px;
+				padding: 10px 20px;
+				background:#fff;
+				border: none;
+				-webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);
+				-moz-box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);
+				box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);
+			}
+		}
+	}
+
+
+
+
+	.paginator {
+		width: 50%;
+		margin: 0 auto;
+		padding: 20px 0px 0px 0px;
+		@include clearfix;
+		a {
+			display: block;
+			position: relative;
+			width: 150px;
+			padding: 10px 20px;
+			border-radius: 5px;
+			-webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);
+			-moz-box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);
+			box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);
+
+			&.new_posts {
+				float: left;
+				text-align: right;
+				&:before {
+					content: "\2190";
+					position: absolute;
+					left: 10px;
+					top: 50%;
+    				transform: translateY(-50%);
+    				color: $font_color;
+				}
+			}
+
+			&.old_posts {
+				float: right;
+				text-align: left;
+				&:before {
+					content: "\2192";
+					position: absolute;
+					right: 10px;
+					top: 50%;
+    				transform: translateY(-50%);
+    				color: $font_color;
+				}
+			}
+		}
+	}
+}
+header {
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	height: 60px;
+	z-index:100;
+	opacity:1;
+	@include clearfix;
+	.logo {
+		float: left;
+		
+
+		svg { 
+			height: 60px;
+			padding: 10px 10px;
+		}
+	}
+
+	.nav_links { 
+		float: right;
+		padding: 19px 10px;
+		height: 60px;
+		a {
+			text-transform: uppercase;
+			font-weight: 700;
+			color: $sub_font_color;
+			font-size: $font-size + 2;
+			border-radius: 5px;
+			margin: 0px 20px;
+			padding: 10px 20px;
+			&:hover {
+				-webkit-box-shadow: 0px 0px 0px 1px rgba(255,255,255,1);
+				-moz-box-shadow: 0px 0px 0px 1px rgba(255,255,255,1);
+				box-shadow: 0px 0px 0px 1px rgba(255,255,255,1);
+			}
+		}
+	}
+}
+
+footer {
+	padding: 20px 0px;
+	text-align:center;
+	div {
+		width: 50%;
+		margin: 0 auto;
+		margin-bottom: 30px;
+
+		&.social_buttons {
+			a {
+				display: inline-block;
+				border-radius: 50%;
+				width: 40px;
+				height: 40px;
+				background: #535354;
+				color: $sub_font_color;
+				transition: background 0.2s;
+				&.fb {
+					padding: 7px 0px 0px 0px;
+					font-size: 25px;
+
+					&:hover {
+						background: #3b5998;
+					}
+				}
+				&.tw {
+					padding: 7px 0px 0px 4px;
+					font-size: 25px;
+
+					&:hover {
+						background: #0084B4;
+					}
+				}
+				&.gt {
+					padding: 4px 0px 0px 2px;
+    				font-size: 30px;
+
+    				&:hover {
+						background: #231f20;
+					}
+				}
+			}
+		}
+
+		&.legal {
+			opacity: 0.4;
+		}
+	}
+}
